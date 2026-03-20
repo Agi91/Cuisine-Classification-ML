@@ -1,0 +1,14 @@
+# Ignore the large model file
+cuisine_model.pkl
+
+# Ignore any other pickles if they are large
+# mlb.pkl 
+
+# Ignore python cache and environments
+__pycache__/
+*.py[cod]
+venv/
+.env
+
+# Ignore OS specific files
+.DS_Store
