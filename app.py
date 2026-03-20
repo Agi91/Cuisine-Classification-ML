@@ -16,7 +16,12 @@ st.set_page_config(
 # ==========================================
 
 # Custom CSS for a Luxury Tech Theme - Professional Balanced Version
+
+
+# Material Icons Library Load + Custom CSS
+# Material Icons Library Load + Full Professional CSS
 st.markdown("""
+<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 <style>
     /* 1. Global App Styling */
     .stApp {
@@ -31,7 +36,7 @@ st.markdown("""
     
     /* 3. Sidebar Compact Spacing Logic */
     [data-testid="stSidebar"] [data-testid="stVerticalBlock"] {
-        gap: 0.7rem !important; /* Balanced gap between elements */
+        gap: 0.7rem !important; 
         padding-top: 1rem !important;
     }
 
@@ -40,7 +45,7 @@ st.markdown("""
         color: #e0f2f2 !important;
         font-size: 14px !important;
         font-weight: 600 !important;
-        margin-bottom: 2px !important; /* Label aur input ke beech thodi jagah */
+        margin-bottom: 2px !important; 
         display: block !important;
     }
 
@@ -53,18 +58,23 @@ st.markdown("""
         margin-bottom: 5px !important;
     }
 
-    /* 6. Divider (st.divider) Styling */
+    /* 6. Icon Styling */
+    .micons {
+        vertical-align: middle;
+        margin-right: 8px;
+        color: #00b3b3;
+        font-size: 20px;
+    }
+
+    /* 7. Divider Styling */
     [data-testid="stSidebar"] hr {
         margin: 0.6rem 0 !important;
         border: none;
         border-top: 1px solid rgba(255,255,255,0.2);
     }
 
-    /* 7. Headers & Main Panel Styling */
-    h1 {
-        color: #004d4d !important;
-        font-weight: 800 !important;
-    }
+    /* 8. Headers & UI Elements */
+    h1 { color: #004d4d !important; font-weight: 800 !important; }
     
     .prediction-card {
         background-color: white;
@@ -72,25 +82,27 @@ st.markdown("""
         border-radius: 15px;
         box-shadow: 0 10px 25px rgba(0,0,0,0.1);
         border-left: 8px solid #008080;
+        margin-bottom: 20px;
     }
 
-    /* 8. Cuisine Tags & Buttons */
     .cuisine-tag {
         background: linear-gradient(45deg, #008080, #00b3b3);
         color: white;
         padding: 8px 18px;
         border-radius: 25px;
-        margin: 5px;
-        display: inline-block;
         font-weight: 600;
+        margin: 6px;
+        display: inline-block;
+        box-shadow: 0 4px 10px rgba(0,128,128,0.2);
     }
 
     div.stButton > button:first-child {
         background: linear-gradient(to right, #008080, #00b3b3);
         color: white;
         border: none;
-        padding: 12px;
+        padding: 12px 20px;
         border-radius: 10px;
+        font-size: 18px;
         font-weight: bold;
         width: 100%;
         margin-top: 15px;
@@ -125,25 +137,28 @@ df = load_and_preprocess_data()
 # 3. Sidebar - Profile Inputs
 # ==========================================
 with st.sidebar:
-    st.image("https://cdn-icons-png.flaticon.com/512/3443/3443338.png", width=100)
+    st.image("https://cdn-icons-png.flaticon.com/512/3443/3443338.png", width=80)
     st.title("Settings")
-    st.markdown("Configure the restaurant parameters below to generate a cuisine profile.")
+    st.markdown("Configure the restaurant parameters below.")
     st.divider()
 
-    st.subheader("💰 Financial Tier")
+    # Financial Tier with Icon
+    st.markdown('#### <i class="material-icons micons">payments</i> Financial Tier', unsafe_allow_html=True)
     max_dataset_cost = int(df["Average Cost for two"].max())
     input_cost = st.number_input("Avg Cost for Two", 0, max_dataset_cost, 1000, 50)
     input_price_range = st.slider("Price Range Tier", 1, 4, 2)
 
     st.divider()
-    st.subheader("⭐ Performance")
+
+    # Performance with Icon
+    st.markdown('#### <i class="material-icons micons">analytics</i> Performance', unsafe_allow_html=True)
     input_rating = st.slider("Target Rating", 0.0, 5.0, 3.8, 0.1)
     max_dataset_votes = int(df["Votes"].max())
     input_votes = st.number_input("Total Votes", 0, max_dataset_votes, 200, 10)
 
     st.divider()
     predict_btn = st.button("Generate Prediction 🚀")
-
+    
 # ==========================================
 # 4. Main Panel
 # ==========================================
