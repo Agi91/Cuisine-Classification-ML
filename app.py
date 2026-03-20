@@ -209,4 +209,5 @@ else:
 # 5. Footer
 # ==========================================
 st.divider()
-st.caption("Intelligence Engine v2.0 | Haryana-based AI/ML Analysis Hub")
+
+st.caption("Cuisine Intelligence Pro | Developed by Umashankar Sahu | AI/ML Student")
