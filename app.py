@@ -11,79 +11,90 @@ st.set_page_config(
     layout="wide",
     initial_sidebar_state="expanded"
 )
+# ==========================================
+# 1. Page & Aesthetic Configuration (REFINED)
+# ==========================================
 
-# Custom CSS for a Luxury Tech Theme
+# Custom CSS for a Luxury Tech Theme - Professional Balanced Version
 st.markdown("""
 <style>
-    /* Main Background Gradient */
+    /* 1. Global App Styling */
     .stApp {
         background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
     }
     
-    /* Sidebar Styling */
+    /* 2. Sidebar Main Container */
     section[data-testid="stSidebar"] {
-        background-color: #002b2b !important; /* Deep Dark Teal */
+        background-color: #002b2b !important;
         color: white !important;
     }
-    section[data-testid="stSidebar"] .stMarkdown, section[data-testid="stSidebar"] label {
-        color: #e0f2f2 !important;
-    }
     
-    /* Headers & Titles */
+    /* 3. Sidebar Compact Spacing Logic */
+    [data-testid="stSidebar"] [data-testid="stVerticalBlock"] {
+        gap: 0.7rem !important; /* Balanced gap between elements */
+        padding-top: 1rem !important;
+    }
+
+    /* 4. Labels Styling (No Overlap) */
+    section[data-testid="stSidebar"] label {
+        color: #e0f2f2 !important;
+        font-size: 14px !important;
+        font-weight: 600 !important;
+        margin-bottom: 2px !important; /* Label aur input ke beech thodi jagah */
+        display: block !important;
+    }
+
+    /* 5. Input & Slider Container Styling */
+    .stNumberInput, .stSlider {
+        background: rgba(255,255,255,0.08);
+        padding: 8px 12px !important;
+        border-radius: 12px;
+        border: 1px solid rgba(255,255,255,0.1);
+        margin-bottom: 5px !important;
+    }
+
+    /* 6. Divider (st.divider) Styling */
+    [data-testid="stSidebar"] hr {
+        margin: 0.6rem 0 !important;
+        border: none;
+        border-top: 1px solid rgba(255,255,255,0.2);
+    }
+
+    /* 7. Headers & Main Panel Styling */
     h1 {
         color: #004d4d !important;
         font-weight: 800 !important;
-        text-shadow: 1px 1px 2px rgba(0,0,0,0.1);
     }
     
-    /* Prediction Card Effect */
     .prediction-card {
         background-color: white;
         padding: 25px;
         border-radius: 15px;
         box-shadow: 0 10px 25px rgba(0,0,0,0.1);
         border-left: 8px solid #008080;
-        margin-bottom: 20px;
     }
 
-    /* Custom Cuisine Tags */
+    /* 8. Cuisine Tags & Buttons */
     .cuisine-tag {
         background: linear-gradient(45deg, #008080, #00b3b3);
         color: white;
         padding: 8px 18px;
         border-radius: 25px;
-        font-weight: 600;
-        margin: 6px;
+        margin: 5px;
         display: inline-block;
-        box-shadow: 0 4px 10px rgba(0,128,128,0.2);
-        transition: transform 0.2s;
-    }
-    .cuisine-tag:hover {
-        transform: scale(1.05);
+        font-weight: 600;
     }
 
-    /* Button Styling */
     div.stButton > button:first-child {
         background: linear-gradient(to right, #008080, #00b3b3);
         color: white;
         border: none;
-        padding: 12px 20px;
+        padding: 12px;
         border-radius: 10px;
-        font-size: 18px;
         font-weight: bold;
         width: 100%;
+        margin-top: 15px;
         box-shadow: 0 4px 15px rgba(0,0,0,0.2);
-    }
-    div.stButton > button:first-child:hover {
-        background: linear-gradient(to right, #006666, #008080);
-        box-shadow: 0 6px 20px rgba(0,0,0,0.3);
-    }
-
-    /* Input Box Styling */
-    .stNumberInput, .stSlider {
-        background: rgba(255,255,255,0.05);
-        padding: 10px;
-        border-radius: 10px;
     }
 </style>
 """, unsafe_allow_html=True)
